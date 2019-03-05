@@ -1,0 +1,21 @@
+input UserInput {
+  username:String!
+  password:String!
+  firstName:String!
+  lastName:String!
+}
+
+type User {
+  id:ID!
+  username:String!
+  firstName:String!
+  lastName:String!
+}
+
+type Mutation {
+  addUser(user:UserInput!):User!
+}
+
+type Query {
+  logIn(username:String!,password:String!):String!
+}

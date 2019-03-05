@@ -1,0 +1,16 @@
+input ClientInput {
+  name:String!
+}
+
+type Client {
+  id:ID!
+  name:String!
+}
+
+type Mutation {
+  addClient(client:ClientInput!): Client!
+}
+
+type Query {
+  clients: [Client!]!
+}
