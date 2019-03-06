@@ -1,0 +1,28 @@
+input FeedbackRevisionInput {
+  feedbackId:ID!
+  summary:String!
+  detail:String!
+}
+
+input FeedbackRevisionPatch {
+  id:ID!
+  summary:String
+  detail:String
+}
+
+type FeedbackRevision {
+  id:ID!
+  createdAt:String!
+  feedbackId:ID!
+  summary:String!
+  detail:String!
+}
+
+enum Order {
+  ASC
+  DESC
+}
+
+type Query {
+  feedbackRevisions(feedbackId:ID, orderBy:String, order:Order): [FeedbackRevision!]!
+}

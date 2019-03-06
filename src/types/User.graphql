@@ -17,5 +17,5 @@ type Mutation {
 }
 
 type Query {
-  logIn(username:String!,password:String!):String!
+  logIn(username:String!,password:String!):String
 }

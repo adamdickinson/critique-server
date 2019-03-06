@@ -2,15 +2,23 @@ input ClientInput {
   name:String!
 }
 
+input ClientPatch {
+  id:ID!
+  name:String!
+}
+
 type Client {
   id:ID!
   name:String!
 }
 
 type Mutation {
-  addClient(client:ClientInput!): Client!
+  createClient(client:ClientInput!): Client!
+  deleteClient(id:ID!): Client!
+  updateClient(client:ClientPatch!): Client!
 }
 
 type Query {
+  client(id:ID!): Client
   clients: [Client!]!
 }

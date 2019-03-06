@@ -1,0 +1,28 @@
+input ProjectInput {
+  name:String!
+  clientId:ID!
+}
+
+input ProjectPatch {
+  id:ID!
+  name:String!
+}
+
+type Project {
+  id:ID!
+  name:String!
+  clientId:ID!
+  client:Client!
+  rounds:[Round!]!
+}
+
+type Mutation {
+  createProject(project:ProjectInput!): Project!
+  deleteProject(id:ID!): Project!
+  updateProject(project:ProjectPatch!): Project!
+}
+
+type Query {
+  project(id:ID!): Project
+  projects(clientId:ID): [Project!]!
+}

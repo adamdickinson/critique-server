@@ -1,0 +1,39 @@
+input FeedbackInput {
+  completed:Boolean!
+  roundId:ID!
+  summary:String!
+  detail:String!
+  with:String!
+}
+
+input FeedbackPatch {
+  id:ID!
+  completed:String
+  roundId:ID
+  summary:String
+  detail:String
+  with:String
+}
+
+type Feedback {
+  id:ID!
+  completed:Boolean!
+  round:Round
+  roundId:ID!
+  summary:String!
+  detail:String!
+  with:String!
+  createdAt:String!
+  updatedAt:String!
+}
+
+type Mutation {
+  createFeedback(feedback:FeedbackInput!): Feedback!
+  deleteFeedback(id:ID!): Feedback!
+  updateFeedback(feedback:FeedbackPatch!): Feedback!
+}
+
+type Query {
+  feedback(id:ID!): Feedback
+  feedbacks(roundId:ID): [Feedback!]!
+}

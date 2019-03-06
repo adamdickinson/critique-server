@@ -16,7 +16,7 @@ async function main() {
   Model.knex(knex)
 
   const server = new ApolloServer({ typeDefs, resolvers })
-  server.listen({ port: 8080 }, () => {
+  server.listen({ port: 8081 }, () => {
     console.log("Yeaboiii listening")
   })
 

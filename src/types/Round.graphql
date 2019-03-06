@@ -1,0 +1,30 @@
+input RoundInput {
+  projectId:ID!
+  openAt:String
+}
+
+input RoundPatch {
+  id:ID!
+  openAt:String
+}
+
+type Round {
+  active:Boolean!
+  closedAt:String
+  id:ID!
+  number:Int!
+  openAt:String
+  projectId:ID!
+  project:Project!
+}
+
+type Mutation {
+  createRound(round:RoundInput!): Round!
+  deleteRound(id:ID!): Round!
+  updateRound(round:RoundPatch!): Round!
+}
+
+type Query {
+  round(id:ID!): Round
+  rounds(projectId:ID): [Round!]!
+}
